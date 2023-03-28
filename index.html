@@ -84,7 +84,7 @@
         #mainContent {
             width: 100vw;
             min-height: 90vh;
-            background-image: url("https://github.com/pranavbisaria/Test-Vedika/blob/master/tv11.png");
+            background-image: url("https://pranavbisaria.github.io/Test-Vedika/tv11.png");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -100,7 +100,7 @@
         #secondaryContainer {
             width: 100vw;
             min-height: 90vh;
-            background-image: url("https://github.com/pranavbisaria/Test-Vedika/blob/master/tv12.jpg");
+            background-image: url("https://pranavbisaria.github.io/Test-Vedika/tv12.jpg");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -303,7 +303,7 @@
         #about {
             width: 100vw;
             min-height: 90vh;
-            background-image: url("https://github.com/pranavbisaria/Test-Vedika/blob/master/tv11.png");
+            background-image: url("https://pranavbisaria.github.io/Test-Vedika/tv11.png");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -628,7 +628,7 @@
         AOS.init();
         const productList = document.querySelector(".product-list");
         const loader = document.getElementById("loader");
-        const apiUrl = "http://3.111.192.28:8080/product/allProducts";
+        const apiUrl = "https://vedika.up.railway.app/product/allProducts";
         async function fetchProducts(
             pageNumber = 0,
             pageSize = 5,
@@ -677,7 +677,7 @@
                     productImgDiv.appendChild(image);
                     productImgDiv.classList.remove("skeleton-box");
                 };
-                image.src = "http://3.111.192.28:8080/file/" + product.imageUrls;
+                image.src = "https://vedika.up.railway.app/file/" + product.imageUrls;
 
                 const modelName = document.createElement("h2");
                 modelName.textContent = product.modelName;
