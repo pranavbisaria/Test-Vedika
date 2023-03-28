@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK Enterprises</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.png" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f8a733ce0a.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        .navbar-light .navbar-nav .nav-link.active {
+            border-bottom: 2px solid #e6eaef;
+            font-size: 1.2em;
+            font-weight: 900;
+        }
+
+        .navbar-brand img {
+            height: 5vh;
+            filter: drop-shadow(1px 1px 11px rgba(0, 0, 0, 0.5));
+        }
+
+        .button-appear {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: buttonAppear 1.5s ease-in-out forwards;
+        }
+
+        @keyframes buttonAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .parallax-wrapper {
+            height: 100vh;
+            background: var(--color_dark);
+            overflow-y: auto;
+            overflow-x: hidden;
+            perspective: 10px;
+        }
+
+        .wrapper {
+            display: grid;
+            place-items: center;
+        }
+
+        .typing-demo {
+            width: 22ch;
+            animation: typing 1s steps(22), blink .5s step-end infinite alternate;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            font-size: 2em;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent
+            }
+        }
+
+        #mainContent {
+            width: 100vw;
+            min-height: 90vh;
+            background-image: url("/tv11.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            color: #e6eaef;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+            z-index: -1;
+        }
+
+        #secondaryContainer {
+            width: 100vw;
+            min-height: 90vh;
+            background-image: url("/tv12.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            color: #e6eaef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: -1;
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        #services {
+            z-index: 999999;
+            position: relative;
+            transform: translateZ(0px);
+        }
+
+        .centered {
+            margin: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-bottom: 10%;
+            color: white;
+            font-size: 1.2rem;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 600px;
+            text-align: center;
+        }
+
+        .blue {
+            font-weight: 600;
+            color: #4c97e4;
+        }
+
+        #moreProduct {
+            text-align: right;
+            margin-right: 50px;
+            margin-bottom: 100px;
+        }
+
+        #moreProduct a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .product-list {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+            padding: 10px 50px;
+            overflow-x: hidden;
+        }
+
+        .product {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 290px;
+            margin: 10px;
+            border: 1px solid #5351ae;
+            padding: 30px;
+            background: linear-gradient(to bottom, #f3f6ff, #b1d5f8);
+            filter: drop-shadow(1px 1px 11px rgba(0, 0, 0, 0.5));
+        }
+
+        .product h2 {
+            width: 100%;
+            text-align: left;
+        }
+
+        .product p {
+            width: 100%;
+            text-align: left;
+        }
+
+        .product div {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            text-align: left;
+        }
+
+        .product div s {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .product div p {
+            color: #007bff;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            background-color: white;
+            border: 1px solid #5e8fca;
+        }
+
+        .viewButton {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: #007bff;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* Services --> */
+        .serviceDiv {
+            min-height: 35vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 149px;
+            color: #009DF8;
+        }
+
+        .logService {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        h3 {
+            color: #333333;
+        }
+
+        .servLogo {
+            height: 80px;
+        }
+
+        .headService {
+            color: white;
+            text-align: center;
+            font-size: 2.7em;
+        }
+
+        #serviceHead {
+            margin-top: 100px;
+        }
+
+        /* Footer--> */
+        footer {
+            background-color: #215487;
+            padding: 145px 0;
+        }
+
+        h4 {
+            color: #d4d7f2;
+        }
+
+        .pfooter {
+            color: #bac0d4;
+        }
+
+        .fa-brands,
+        .fab {
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+            color: aliceblue;
+        }
+
+        /* Vedika About --> */
+        #textContent {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3em;
+            width: 50%;
+            text-align: justify;
+        }
+
+        #about {
+            width: 100vw;
+            min-height: 90vh;
+            background-image: url("/tv11.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            color: #e6eaef;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+            position: relative;
+            z-index: -1;
+        }
+
+        #indiaMart {
+            margin-top: 20px;
+            height: 600px;
+            width: 400px;
+        }
+
+        .image-container {
+            display: flex;
+            width: 557px;
+            height: 200px;
+            margin-bottom: 20px;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .image-container img {
+            width: 113px;
+            height: auto;
+        }
+
+        /* Loader --> */
+        #loader {
+            border: 16px solid #f3f3f3;
+            border-top: 16px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin: auto;
+            display: none;
+        }
+
+        #whatsapp {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            width: 67px;
+            border-radius: 50%;
+            z-index: 100;
+            filter: drop-shadow(2px 2px 10px rgba(0, 0, 0, 1));
+        }
+
+        #whatsapp:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Products--> */
+        .skeleton-box {
+            display: inline-block;
+            padding-top: 100%;
+            margin-bottom: 10px;
+            border: 1px solid #5e8fca;
+            position: relative;
+            overflow: hidden;
+            background-color: #DDDBDD;
+        }
+
+        .skeleton-box::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            -webkit-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
+            background-image: -webkit-linear-gradient(90deg,
+                    rgba(255, 255, 255, 0) 0,
+                    rgba(255, 255, 255, 0.2) 20%,
+                    rgba(255, 255, 255, 0.5) 60%,
+                    rgba(255, 255, 255, 0));
+            background-image: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0) 0,
+                    rgba(255, 255, 255, 0.2) 20%,
+                    rgba(255, 255, 255, 0.5) 60%,
+                    rgba(255, 255, 255, 0));
+            -webkit-animation: shimmer 2s infinite;
+            animation: shimmer 2s infinite;
+            content: '';
+        }
+
+        @-webkit-keyframes shimmer {
+            100% {
+                -webkit-transform: translateX(100%);
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes shimmer {
+            100% {
+                -webkit-transform: translateX(100%);
+                -ms-transform: translateX(100%);
+                transform: translateX(100%);
+            }
+        }
+
+        .slide-in-right {
+            position: relative;
+            right: -100%;
+            opacity: 0;
+            transform: scale(0.5);
+            animation: slide-in-right 2s ease-in-out forwards;
+        }
+
+        @keyframes slide-in-right {
+            0% {
+                right: -100%;
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                right: 0;
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* /about --> */
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgba(55, 79, 204, 0);">
+        <a class="navbar-brand mx-auto" href="#">
+            <img src="vedikaLogo.png" alt="logo" id="logoPure" class="img-fluid" />
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="home">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactUs">CONTACT<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <a href="https://wa.me/+919717132448" title="Click to chat" target="_blank" rel="noopener noreferrer"><img
+            id="whatsapp" src="Whatapp.png"></a>
+
+    <div class="parallax-wrapper">
+
+        <section id="mainContent">
+        </section>
+        <section class="centered">
+            <div class="wrapper">
+                <h1 class="typing-demo">Welcome to our website!</h1>
+            </div>
+            <p id="fade-in-text">
+                Here innovation, technology, and design converge to deliver the
+                ultimate viewing experience. We are passionate about creating TVs that
+                not only look stunning but also deliver crystal-clear images and
+                immersive sound. With our cutting-edge technology and advanced
+                engineering, we bring the cinema experience to your living room. Our
+                commitment to excellence is evident in every TV we produce, from our
+                stunning OLED displays to our sleek and stylish designs. We believe
+                that a great TV should not only be a centerpiece in your living room,
+                but it should also deliver an unparalleled viewing experience that
+                immerses you in your favorite movies, shows, and games.
+            </p>
+            <a class="btn btn-primary button-appear" href="contactUs">Contact Us</a>
+        </section>
+        <section id="products" style="margin-top: 50px;">
+            <hr class="styled-hr" />
+            <h1>OUR <span class="blue">PRODUCTS</span></h1>
+            <br>
+            <div class="product-list"></div>
+            <div id="loader"></div>
+            <p id="moreProduct"><a href="products"> More Products >>></a></p>
+        </section>
+        <section id="secondaryContainer">
+            <section>
+                <hr class="styled-hr" />
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>OUR<span class="blue"> BUSINESS</span></h1>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="b-text">We Manufacture high quality LED TVs of all sizes with best panels and best
+                                quality PCBs.</p>
+                            <p class="b-text">Our flag product is <span class="blue">Vedica TV</span> in all sizes.</p>
+                            <p class="b-text">We undertake OEM of LED TVs of our business partners.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="container m-container">
+                <hr class="styled-hr" />
+                <div class="row mission">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <h1 class="m-heading"><span class="blue">OUR</span> MISSION</h1>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 mt-3 text-center">
+                        <p class="m-text">"Manufacture unparalleled quality-centric TVs and ensure that
+                            customers/clients
+                            are fully satisfied at all times."</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section id="services">
+            <hr class="styled-hr">
+
+            <h1><span class="blue">SERVICES</span> WE OFFER</h1>
+            <hr class="styled-hr" style="opacity: 0.3; margin: 10px auto 20px; padding: 0" />
+            <div class="serviceDiv">
+                <div class="logService">
+                    <i class="fas fa-clock fa-3x servLogo" style="font-size: 4.5em"></i>
+                    <h3>Available <br />24x7</h3>
+                </div>
+                <div class="logService">
+                    <i class="fas fa-wrench fa-3x servLogo" style="font-size: 4.5em"></i>
+                    <h3>Warranty &amp; <br />Maintenance</h3>
+                </div>
+                <div class="logService">
+                    <i class="fas fa-tags fa-3x servLogo" style="font-size: 4.5em"></i>
+                    <h3>Low Prices<br />Guaranteed</h3>
+                </div>
+                <div class="logService">
+                    <i class="fas fa-headset fa-3x servLogo" style="font-size: 4.5em"></i>
+                    <h3>Helpline<br />Support</h3>
+                </div>
+            </div>
+            <hr class="styled-hr">
+        </section>
+        <section id="about">
+            <div id="textContent">
+                <div class="image-container">
+                    <img src="vedikaLogoAbout.png" alt="Logo" />
+                    <span style="color: #01a3d4; font-size: 146px; margin-left: 10px">vedi<span
+                            style="color: #e33c12">c</span>a</span>
+                </div>
+                <hr class="styled-hr">
+                <p>
+                    Here innovation, technology, and design converge to deliver the
+                    ultimate viewing experience. We are passionate about creating TVs that
+                    not only look stunning but also deliver crystal-clear images and
+                    immersive sound. With our cutting-edge technology and advanced
+                    engineering, we bring the cinema experience to your living room.<br />
+                    Our commitment to excellence is evident in every TV we produce, from
+                    our stunning OLED displays to our sleek and stylish designs. We
+                    believe that a great TV should not only be a centerpiece in your
+                    living room, but it should also deliver an unparalleled viewing
+                    experience that immerses you in your favorite movies, shows, and
+                    games.
+                    <br />
+                </p>
+            </div>
+            <img id="indiaMart" src="IndiaMart.jpg" alt="Logo" />
+        </section>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 footer-section">
+                        <h4>R K Enterprises</h4>
+                        <p class="pfooter">Manufacturer & O.E.M. Supplier <br />of Smart LED TVs</p>
+                        <p class="pfooter">
+                            Certified for having met the <br />requirements of
+                            <strong>IndiaMART <br />TrustSEAL</strong> in February 2023.
+                        </p>
+                    </div>
+                    <div class="col-lg-4 footer-section">
+                        <h4>Reach Us</h4>
+                        <p class="pfooter">
+                            D-182, Sector-10, Noida<br />
+                            201301, Uttar Pradesh<br />
+                            <strong>Phone:</strong> 9871766494, 9717132448<br />
+                            <strong>Website:</strong>
+                            <a href="www.rkenterprises-noida.com">www.rkenterprises-noida.com</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 footer-section">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        AOS.init();
+        const productList = document.querySelector(".product-list");
+        const loader = document.getElementById("loader");
+        const apiUrl = "http://3.111.192.28:8080/product/allProducts";
+        async function fetchProducts(
+            pageNumber = 0,
+            pageSize = 5,
+            sortBy = "id",
+            sortDir = "desc"
+        ) {
+            loader.style.display = "block";
+            try {
+                const response = await fetch(
+                    `${apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=${sortBy}&sortDir=${sortDir}`
+                );
+                const data = await response.json();
+                renderProducts(data.content);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        window.addEventListener("scroll", function () {
+            var scrollTop = window.pageYOffset;
+            var parallaxElements = document.getElementsByClassName("parallax");
+            for (var i = 0; i < parallaxElements.length; i++) {
+                var parallaxElement = parallaxElements[i];
+                var parallaxSpeed = parallaxElement.getAttribute("data-parallax-speed");
+                parallaxElement.style.transform = "translate3d(0, " + (scrollTop * parallaxSpeed) + "px, 0)";
+            }
+        });
+
+        function renderProducts(products) {
+            productList.innerHTML = "";
+            products.forEach((product) => {
+                const productDiv = document.createElement("div");
+                productDiv.classList.add("product");
+                productDiv.classList.add("slide-in-right");
+                // productDiv.setAttribute("data-aos", "fade-left");
+
+                const productImgDiv = document.createElement("div");
+                productImgDiv.classList.add("product-image");
+                productImgDiv.classList.add("skeleton-box");
+
+                productDiv.appendChild(productImgDiv);
+
+                const image = document.createElement("img");
+                image.alt = "product image";
+                image.onload = function () {
+                    productImgDiv.appendChild(image);
+                    productImgDiv.classList.remove("skeleton-box");
+                };
+                image.src = "http://3.111.192.28:8080/file/" + product.imageUrls;
+
+                const modelName = document.createElement("h2");
+                modelName.textContent = product.modelName;
+                productDiv.appendChild(modelName);
+
+                const size = document.createElement("p");
+                size.textContent = `Size: ${product.size}`;
+                productDiv.appendChild(size);
+
+                const price = document.createElement("div");
+                productDiv.appendChild(price);
+
+                const originalPrice = document.createElement("s");
+                originalPrice.textContent = `Rs. ${product.originalPrice}`;
+                price.append(originalPrice);
+
+                const ourCost = document.createElement("p");
+                ourCost.textContent = `Rs. ${product.ourCost}`;
+                price.appendChild(ourCost);
+
+                const viewMoreButton = document.createElement("button");
+                viewMoreButton.textContent = "View More";
+                viewMoreButton.classList.add("viewButton");
+                viewMoreButton.onclick = function () {
+                    window.location.href = `/viewproduct?id=${product.id}`;
+                };
+                productDiv.appendChild(viewMoreButton);
+
+                productList.appendChild(productDiv);
+                AOS.refresh();
+            });
+            loader.style.display = "none";
+        }
+        fetchProducts();
+    </script>
+</body>
+
+</html>
